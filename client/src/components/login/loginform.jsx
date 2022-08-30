@@ -6,10 +6,22 @@ export const Loginform = () =>{
     const [usernameReg, setUsernameReg] = useState('');
     const [passwordReg, setPasswordReg] = useState('');
 
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
     const register = () =>{
         Axios.post('http://localhost:8000/register', {
         email: usernameReg, 
         password: passwordReg
+      }).then((response)=>{
+        console.log(response);
+      });
+    }
+
+    const login = () =>{
+        Axios.post('http://localhost:8000/login', {
+        email: username, 
+        password: password
       }).then((response)=>{
         console.log(response);
       });
@@ -24,13 +36,19 @@ export const Loginform = () =>{
                 <h3>로그인</h3>
                 <input className={styles.input} 
                     type="text"
+                    onChange={(e)=>{
+                        setUsername(e.target.value);
+                    }}
                     placeholder="이메일"
                     />
                 <input className={styles.input} 
                     type="password"
+                    onChange={(e)=>{
+                        setPassword(e.target.value);
+                    }}
                     placeholder="비밀번호"
                     />
-                <button>로그인</button>
+                <button onClick={login}>로그인</button>
                 <p className={styles.message}>Not registered?</p>
             </div>
             <div className={styles.test}>

@@ -32,4 +32,26 @@ app.post('/register', (req, res) => {
     })
 })
 
+app.post('/login', (req,res)=>{
+    const email = req.body.email
+    const password = req.body.password
+
+    db.query(
+        "SELECT * FROM users WHERE email = ? AND password = ?",
+    [email, password],
+    (err, result)=>{
+        if(err){
+            res.send({err: err});
+        }
+        else{
+            if(result.length>0){
+                res.send(result);
+            }
+            else{
+                res.send({message: "잘못된 아이디 또는 비밀번호 입니다. "});
+            }
+        }
+})
+})
+
 app.listen(port, () => console.log(`Listening on port ${port}`));

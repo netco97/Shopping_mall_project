@@ -15,7 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <TopNavigationBar cart={cart}/>
-      <Routes></Routes>
+      <Routes>
         <Route path="/" element={<Home products={products} setProducts={setProducts}/>} />
         <Route path="/product/:id" element={<Product cart={cart} setCart={setCart}/>} />
         <Route path="/cart" element={<Basket cart={cart} setCart={setCart}/>} />

@@ -1,29 +1,31 @@
 import { useState } from "react";
 import Axios from 'axios';
 import styles from "./loginform.module.css";
+import { useNavigate,Link } from "react-router-dom";
 
 export const Loginform = () =>{
-    const [usernameReg, setUsernameReg] = useState('');
-    const [passwordReg, setPasswordReg] = useState('');
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const register = () =>{
-        Axios.post('http://localhost:8000/register', {
-        email: usernameReg, 
-        password: passwordReg
-      }).then((response)=>{
-        console.log(response);
-      });
-    }
+    const navigate = useNavigate();
+
+    const goToHome = () => {
+        navigate("/");
+    };
 
     const login = () =>{
         Axios.post('http://localhost:8000/login', {
         email: username, 
         password: password
       }).then((response)=>{
-        console.log(response);
+        console.log(response); //console 확인용
+        if(response.data.success){
+            goToHome();
+        }
+        else{
+            alert(response.data.message);
+        }
       });
     }
 
@@ -49,27 +51,12 @@ export const Loginform = () =>{
                     placeholder="비밀번호"
                     />
                 <button onClick={login}>로그인</button>
+
+                <Link to="/register">
                 <p className={styles.message}>Not registered?</p>
+                </Link>
             </div>
-            <div className={styles.test}>
-                <h3>회원가입</h3>
-                <input className={styles.input} 
-                    type="text"
-                    onChange={(e)=>{
-                        setUsernameReg(e.target.value);
-                    }}
-                    placeholder="이메일"
-                    />
-                <input className={styles.input} 
-                    onChange={(e)=>{
-                        setPasswordReg(e.target.value);
-                    }}
-                    name="password" 
-                    placeholder="비밀번호"
-                    />
-                <button onClick={register}>등록</button>
-                <p className={styles.message}>Not registered?</p>
-            </div>
+            
         </div>
     )
 }

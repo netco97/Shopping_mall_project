@@ -6,6 +6,7 @@ import Home from "./pages/home";
 import Product from "./pages/product";
 import Basket from "./pages/basket";
 import Login from "./pages/login";
+import Register from "./pages/register";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -14,11 +15,12 @@ function App() {
   return (
     <BrowserRouter>
       <TopNavigationBar cart={cart}/>
-      <Routes>
+      <Routes></Routes>
         <Route path="/" element={<Home products={products} setProducts={setProducts}/>} />
         <Route path="/product/:id" element={<Product cart={cart} setCart={setCart}/>} />
         <Route path="/cart" element={<Basket cart={cart} setCart={setCart}/>} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register/>}/>
       </Routes>
     </BrowserRouter>
   );

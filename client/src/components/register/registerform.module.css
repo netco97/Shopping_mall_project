@@ -1,0 +1,35 @@
+.head{
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.body{
+    margin : 0 auto;
+    margin-top: 30px;
+}
+
+.text{
+    background-color:white;
+    border: 1px solid #3e8e41;
+    border-radius: 5px;
+    height: 45px;
+    width: 300px;
+    font-size: 20px;
+}
+div{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.sign_up{
+    color: aliceblue;
+    width: 300px;
+    height: 30px;
+    background: #3e8e41;
+    border-radius: 5px;
+    transition: 0.25s;
+}
+
+.sign_up:active{
+    background: greenyellow;
+}

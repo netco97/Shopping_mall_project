@@ -24,6 +24,7 @@
 }
 
 .input_wrap {
+  margin-left:32%;
   position: relative;
   width: 400px;
   height: 46px;

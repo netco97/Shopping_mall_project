@@ -53,7 +53,7 @@ export const Loginform = () =>{
                 <button onClick={login}>로그인</button>
 
                 <Link to="/register">
-                <p className={styles.message}>Not registered?</p>
+                <p className={styles.message}>Not registered? </p>
                 </Link>
             </div>
             

@@ -71,6 +71,25 @@
   cursor: pointer;
 }
 
+.board {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+}
+
+.board img{
+  width: 40px;
+  height: 26px;
+}
+
+.board span{
+  font-size: 12px;
+  line-height: 14px;
+  color: #767676;
+  margin-bottom: 100px;
+
+}
+
 .shopping_cart {
   width: 50px;
   height: 50px;

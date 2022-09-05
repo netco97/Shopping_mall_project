@@ -34,6 +34,7 @@ export const Registerform = () =>{
                 </div>
                 <div>
                     <input 
+                        type='password'
                         className={styles.text}
                         onChange={(e)=>{
                             setPasswordReg(e.target.value);
@@ -44,6 +45,7 @@ export const Registerform = () =>{
                 </div>
                 <div>
                     <input 
+                        type='password'
                         className={styles.text}
                         name="check"
                         placeholder="비밀번호 확인"

@@ -12,7 +12,10 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
 const data = fs.readFileSync('./database.json');
+const board_data = fs.readFileSync('./boarddb.json');
+
 const conf = JSON.parse(data);
+const conf2 = JSON.parse(board_data);
 
 const db = mysql.createConnection({
     host: conf.host,
@@ -20,6 +23,13 @@ const db = mysql.createConnection({
     password: conf.password,
     database: conf.database
   });
+
+const board_db = mysql.createConnection({
+    host: conf2.host,
+    user: conf2.user,
+    password: conf2.password,
+    database: conf2.database
+})
 
 app.post('/register', (req, res) => {
     const email = req.body.email
@@ -53,6 +63,22 @@ app.post('/login', (req,res)=>{
             }
         }
 })
+})
+
+app.post("/board", (req, res) => {
+    const title = req.body.title;
+    const content = req.body.content;
+    const sqlQuery = "INSERT INTO simpleboard (title, content) VALUES (?,?)";
+    board_db.query(sqlQuery, [title, content], (err, result) => {
+        res.send("success");
+    });
+});
+
+app.get("/board/get", (req, res)=>{
+    const sqlQuery = "SELECT * FROM simpleboard;";
+    board_db.query(sqlQuery, (err, result)=>{
+        res.send(result);
+    })
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

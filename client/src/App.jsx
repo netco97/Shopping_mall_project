@@ -7,6 +7,7 @@ import Product from "./pages/product";
 import Basket from "./pages/basket";
 import Login from "./pages/login";
 import Register from "./pages/register";
+import Board from "./pages/board";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -21,6 +22,7 @@ function App() {
         <Route path="/cart" element={<Basket cart={cart} setCart={setCart}/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register/>}/>
+        <Route path="/board" element={<Board/>}/>
       </Routes>
     </BrowserRouter>
   );

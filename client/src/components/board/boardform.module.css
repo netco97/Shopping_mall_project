@@ -1,0 +1,40 @@
+.body {
+    text-align: center;
+  }
+  
+  .container {
+    margin: 0 auto;
+    width: 80%;
+    border: 1px solid #333;
+    padding: 10px 0 30px 0;
+    border-radius: 5px;
+    margin-bottom : 50px;
+  }
+  
+  .wrapper{
+    width: 60%;
+    margin: 0 auto;
+  }
+  
+  .input {
+    width: 500px;
+    height: 40px;
+    margin: 10px;
+  }
+  
+  .button {
+    width: 200px;
+    height: 80px;
+    font-size: 24px;
+    color:white;
+    padding: 20px;
+    border: none;
+    background: #3e8e41;
+    border-radius: 5px;
+    margin-top: 40px;
+    vertical-align: middle;
+  }
+  
+  .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
+    min-height: 500px;
+  }

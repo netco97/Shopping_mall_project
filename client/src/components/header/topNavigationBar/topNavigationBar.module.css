@@ -107,6 +107,7 @@
 
 .shopping_cart .new_shopping_cart p {
   position: relative;
+  margin-right: 10px;
   top: 50%;
   left: 45%;
   transform: translate(-10%, -45%);
@@ -136,6 +137,16 @@
   width: 50px;
   height: 32px;
 }
+
+.logout {
+  font-size: 12px;
+  line-height: 14px;
+  color: #767676;
+  margin-left: 10px;
+  cursor:pointer; 
+}
+
+
 
 @media (max-width: 768px) {
   .input_wrap {

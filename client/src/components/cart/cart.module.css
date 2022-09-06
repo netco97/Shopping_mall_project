@@ -142,7 +142,7 @@
 .cart_product_count .count {
   position: absolute;
   width: 38px;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid #c4c4c4;

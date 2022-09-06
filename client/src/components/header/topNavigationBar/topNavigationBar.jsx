@@ -1,7 +1,32 @@
 import styles from "./topNavigationBar.module.css";
 import { Link } from "react-router-dom";
+import { useState ,useEffect} from "react";
 
 export const TopNavigationBar = ({cart}) => {
+  const [login, setLogin] = useState("로그인");
+  const [logout, setLogout] = useState("");
+
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.replace('http://localhost:3000/')
+  }
+
+  const handleLogin = () => {
+    if (localStorage.getItem('email') === null) {
+      setLogin("로그인");
+    }
+    else{
+      setLogin(localStorage.getItem('email')+"님");
+      setLogout("로그아웃");
+    }
+  }
+
+  useEffect(() => {
+    handleLogin();
+  }, []);
+
+
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -37,9 +62,12 @@ export const TopNavigationBar = ({cart}) => {
         <Link to="/login">
           <div className={styles.mypage}>
             <img src="/images/icon-user.svg" alt="user" />
-            <span>로그인</span>
+            <span>{login}</span>
           </div>
         </Link>
+          <div className={styles.logout}>
+            <span onClick={handleLogout}>{logout}</span>
+          </div>
       </div>
     </header>
   );

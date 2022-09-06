@@ -1,34 +1,29 @@
 import { useState } from "react";
 import Axios from 'axios';
 import styles from "./loginform.module.css";
-import { useNavigate,Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Loginform = () =>{
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const navigate = useNavigate();
-
-    const goToHome = () => {
-        navigate("/");
-    };
-
     const login = () =>{
         Axios.post('http://localhost:8000/login', {
-        email: username, 
+        email: username,
         password: password
       }).then((response)=>{
         console.log(response); //console 확인용
-        if(response.data.success){
-            goToHome();
+        if(response.data.message !== "잘못된 아이디 또는 비밀번호 입니다. "){
+            localStorage.setItem('email', response.data[0].email);
+            window.location.replace('http://localhost:3000/')
         }
         else{
             alert(response.data.message);
         }
       });
     }
-
+    
     return (
         <div>
             <a href="https://netco97.tistory.com">

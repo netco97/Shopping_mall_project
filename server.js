@@ -56,7 +56,7 @@ app.post('/login', (req,res)=>{
         else{
             if(result.length>0){
                 if(result)
-                res.send({success: true});
+                res.json(result);
             }
             else{
                 res.send({message: "잘못된 아이디 또는 비밀번호 입니다. "});

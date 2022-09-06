@@ -12,8 +12,6 @@ export const Boardform = () =>{
         content: ''
     })
 
-    const [viewContent, setViewContent] = useState([]);
-
     const getValue = (e) =>{
         const {name,value} = e.target;
         setMovieContent({
@@ -22,6 +20,8 @@ export const Boardform = () =>{
         })
         console.log(movieContent);
     }
+    
+    const [viewContent, setViewContent] = useState([]);
 
     useEffect(()=>{
         Axios.get('http://localhost:8000/board/get').then((response)=>{
@@ -48,6 +48,7 @@ export const Boardform = () =>{
                 <div>
                     {Parser(e.content)}
                 </div>
+                <div>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</div>
             </div>
             )}
       </div>
@@ -61,7 +62,7 @@ export const Boardform = () =>{
         />
         <CKEditor
           editor={ClassicEditor}
-          data="<p>여기는 게시판입니다.</p>"
+          data="<p>입력</p>"
           onReady={editor => {
             // You can store the "editor" and use when it is needed.
             console.log('Editor is ready to use!', editor);
